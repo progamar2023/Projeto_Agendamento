@@ -1,0 +1,46 @@
+<app-admin-menu></app-admin-menu>
+
+
+<div class="container p-5">
+
+    <h1 class="col-12 text-center mb-5 font-bold">CONTATOS</h1>
+
+    <table class="table table-responsive-lg table-bordered table-hover">
+        <thead>
+            <tr class="text-center">
+                <th>Registro</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Assunto</th>
+                <th>Mensagem</th>
+                <th>Data de Envio</th>
+                <th>Enviar</th>
+            </tr>
+            
+        </thead>
+        <tbody>
+            <tr *ngFor="let contato of contatos | paginate: { itemsPerPage: 5, currentPage: paginaAtual }; let i = index">
+                <td>{{contato.id}}</td>
+                <td>{{contato.nome}}</td>
+                <td>{{contato.email}}</td>
+                <td>{{contato.assunto}}</td>
+                <td>{{contato.mensagem}}</td>
+                <td>{{contato.dataCriacao | date: 'dd/MM/yyyy'}}</td>
+                <td class="text-center"><a href="mailto:danielamiranda.contato@gmail.com"><span class="material-icons">
+                    email
+                    </span></a></td>
+            </tr>
+        </tbody>
+        <tfoot class="text-center">
+            <tr>
+                <td colspan="7" class="mt-2">
+                    <pagination-controls (pageChange)="paginaAtual = $event" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
+                </td>
+            </tr>
+        </tfoot>
+       
+    </table>
+
+</div>
+
+

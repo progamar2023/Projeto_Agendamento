@@ -1,0 +1,28 @@
+<form [formGroup]= "form" (ngSubmit)= "onSubmit(form.value)" class="container p-5" id="Contato">
+    <div class="form-row">
+        <h2 class="col-12 text-center">Contato</h2>
+        <p class="col-12 text-center mt-0 mb-5">Caso tenha alguma dúvida ou sugestão, entre em contato pelo formulário.
+        </p>
+    </div>
+    <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control" formControlName="Nome" id="nome" placeholder="Digite seu nome">
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" formControlName="Email" placeholder="Digite seu email">
+    </div>
+    <div class="form-group">
+        <label for="assunto">Assunto</label>
+        <select class="form-control" id="assunto" formControlName="Assunto">
+            <option disabled selected>Selecione o assunto</option>
+            <option value="duvida">Dúvida</option>
+            <option value="sugestao">Sugestão</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="mensagem">Mensagem</label>
+        <textarea class="form-control" id="mensagem" rows="3" formControlName="Mensagem"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">ENVIAR</button>
+</form>

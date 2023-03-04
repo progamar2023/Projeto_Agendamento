@@ -1,0 +1,51 @@
+<app-admin-menu></app-admin-menu>
+
+<div class="container p-5">
+
+    <h1 class="col-12 text-center mb-5 font-bold">AGENDA</h1>
+
+    <div class="card mb-3" *ngFor="let agendamento of agendamentos  | paginate: { itemsPerPage: 5, currentPage: paginaAtual }; let i = index">
+        <div class="card-header">
+            <div class="row">
+                <div class="col font-bold h5">
+                    Agendamento Nº: {{agendamento.id}}
+                </div>
+                <div class="col">
+                    <p class="text-right">
+                        Data de Cadastro: {{agendamento.dataCriacao | date: 'dd/MM/YYYY'}}
+                    </p>
+                </div>
+            </div>
+         
+        </div>
+        <div class="card-body">
+          <div class="row ">
+            <div class="col-2 text-center">
+                <p class="h5">{{ agendamento.dataAgendamento | date: 'dd/MM/YYYY'}}</p>
+                <p>{{ agendamento.dataAgendamento | date: 'hh:mm'}}</p>
+            </div>
+            <div class="col-2">
+                <h2>{{ agendamento.nome}}</h2>
+                <p>{{ agendamento.email}}</p>
+                <p>{{ agendamento.telefone}}</p>
+            </div>
+            <div class="col-2">
+                <h2>Serviço</h2>
+                <p>{{ agendamento.servicoId}}</p>
+                <p>{{ agendamento.descricao}}</p>
+            </div>
+            <div class="col-6 text-center">
+                <h2>Status</h2>
+                
+                <button *ngIf="agendamento.status == 0" type="button" class="btn btn-warning text-white">Agendado</button>
+                <button *ngIf="agendamento.status == 1" type="button" class="btn btn-primary text-white">Agendamento Confirmado</button>
+                <button *ngIf="agendamento.status == 2" type="button" class="btn btn-success text-white">Finalizado</button>
+                <button *ngIf="agendamento.status == 3" type="button" class="btn btn-darger text-white">Cancelado</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class=" text-center mt-5">
+        <pagination-controls (pageChange)="paginaAtual = $event" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
+      </div>
+</div>

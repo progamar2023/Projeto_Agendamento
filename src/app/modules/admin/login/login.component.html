@@ -1,0 +1,21 @@
+<app-menu></app-menu>
+
+<form [formGroup]= "form" (ngSubmit)= "onSubmit(form.value)" class="container col-4 mt-5">
+    <div class="form-row">
+        <h2 class="col-12 text-center mt-5">Login</h2>
+        <p class="col-12 text-center mt-0 mb-5">Insira suas informações de acesso para efetuar o login.
+        </p>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" formControlName="Email"  class="form-control" id="email" placeholder="Digite seu email">
+    </div>
+    <div class="form-group">
+        <label for="senha">Senha</label>
+        <input type="password" formControlName="Senha"  class="form-control" id="senha" placeholder="Digite sua senha">
+    </div>
+    
+    <button type="submit" class="btn btn-primary btn-block">ENTRAR</button>
+</form>
+
