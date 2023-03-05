@@ -1,1 +1,51 @@
-<p>usuario works!</p>
+<div class="card mt-5">
+    <div class="card-header">
+        <div class="row">
+            <div class="col">
+                <h3 class="mt-2">Usuários</h3>
+            </div>
+            <div class="col text-right mt-2">
+                <button class="btn btn-primary" (click)="abreModalAddUsuario()">Adicionar</button>
+            </div>
+        </div>
+       
+    </div>
+    <div class="card-body">
+
+        <table class="table table-responsive-lg table-bordered table-hover">
+            <thead>
+                <tr class="text-center">
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Data de Cadastro</th>
+                    <th>Ações</th>
+                </tr>
+                
+            </thead>
+            <tbody>
+                <tr *ngFor="let usuario of usuarios | paginate: { itemsPerPage: 5, currentPage: paginaAtual }; let i = index">
+                    <td>{{usuario.id}}</td>
+                    <td>{{usuario.nome}}</td>
+                    <td>{{usuario.email}}</td>
+                    <td>{{usuario.dataCriacao | date: 'dd/MM/yyyy'}}</td>
+                    <td>
+                        <span class="material-icons mouse" (click)="editeUsuario(usuario)">
+                            edit
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot class="text-center">
+                <tr>
+                    <td colspan="7" class="mt-2">
+                        <pagination-controls (pageChange)="paginaAtual = $event" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
+                    </td>
+                </tr>
+            </tfoot>
+           
+        </table>
+
+    </div>
+  </div>
+

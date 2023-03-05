@@ -1,10 +1,10 @@
 export class Usuario {
-     Id?: number;
-     Nome?: string;
-     Email?: string;
-     Senha?: string
-     DateTime?: Date
-     Habilitado?: boolean;
+     id?: number;
+     nome?: string;
+     email?: string;
+     senha?: string
+     dataCriacao?: Date
+     habilitado?: boolean;
 }
 export class Login {
      Email?: string;

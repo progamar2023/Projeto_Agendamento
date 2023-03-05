@@ -26,7 +26,7 @@
                 <td>{{contato.assunto}}</td>
                 <td>{{contato.mensagem}}</td>
                 <td>{{contato.dataCriacao | date: 'dd/MM/yyyy'}}</td>
-                <td class="text-center"><a href="mailto:danielamiranda.contato@gmail.com"><span class="material-icons">
+                <td class="text-center"><a [href]="'mailto:' + contato.email"><span class="material-icons">
                     email
                     </span></a></td>
             </tr>

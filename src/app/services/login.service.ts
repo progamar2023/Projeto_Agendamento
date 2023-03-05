@@ -46,7 +46,7 @@ export class LoginService {
   }
 
   putUsuario(Usuario: Usuario): Observable<Usuario> {
-    return this.httpClient.put<Usuario>(`${this.url}/${Usuario.Id}`, JSON.stringify(Usuario), this.httpOptions)
+    return this.httpClient.put<Usuario>(`${this.url}/${Usuario.id}`, JSON.stringify(Usuario), this.httpOptions)
       .pipe(
         retry(1),
         catchError(this.handleError)

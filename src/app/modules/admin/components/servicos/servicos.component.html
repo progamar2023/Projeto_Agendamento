@@ -1,1 +1,53 @@
-<p>servicos works!</p>
+<div class="card mt-5">
+    <div class="card-header">
+        <div class="row">
+            <div class="col">
+                <h3 class="mt-2">Serviços</h3>
+            </div>
+            <div class="col text-right mt-2">
+                <button class="btn btn-primary" (click)="abreModalAddServico()">Adicionar</button>
+            </div>
+        </div>
+       
+    </div>
+    <div class="card-body">
+
+        <table class="table table-responsive-lg table-bordered table-hover">
+            <thead>
+                <tr class="text-center">
+                    <th>Id</th>
+                    <th>Imagem</th>
+                    <th>Tipo</th>
+                    <th>Serviço</th>
+                    <th>Data de Cadastro</th>
+                    <th>Ações</th>
+                </tr>
+                
+            </thead>
+            <tbody>
+                <tr *ngFor="let servico of servicos | paginate: { itemsPerPage: 5, currentPage: paginaAtual }; let i = index">
+                    <td>{{servico.servico?.id}}</td>
+                    <td>{{servico.servico?.imagem}}</td>
+                    <td>{{servico.tipoServico?.nome}}</td>
+                    <td>{{servico.servico?.descricao}}</td>
+                    <td>{{servico.servico?.dataCriacao | date: 'dd/MM/yyyy'}}</td>
+                    <td>
+                        <span class="material-icons mouse" (click)="editeServico(servico.servico)">
+                            edit
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot class="text-center">
+                <tr>
+                    <td colspan="7" class="mt-2">
+                        <pagination-controls (pageChange)="paginaAtual = $event" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
+                    </td>
+                </tr>
+            </tfoot>
+           
+        </table>
+
+    </div>
+  </div>
+

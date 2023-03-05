@@ -19,7 +19,7 @@
     </div>
     <div class="form-group">
         <label for="servicoId">Serviço</label>
-        <select class="form-control" id="ServicoId">
+        <select class="form-control" id="ServicoId" formControlName="ServicoId">
             <option disabled selected>Selecione o assunto</option>
             <option *ngFor="let servico of servicos" [value]="servico.servico?.id">{{servico.servico?.descricao}}</option>
         </select>

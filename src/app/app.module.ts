@@ -5,7 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { InicialComponent } from './modules/site/inicial/inicial.component';
 import { ServicoComponent } from './modules/site/components/servico/servico.component';
@@ -25,7 +27,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContatosComponent } from './modules/admin/contatos/contatos.component';
 import { PainelComponent } from './modules/admin/inicial/inicial.component';
 import { MenuAdminComponent } from './modules/admin/components/menu/menu.component';
-import { NgxPaginationModule } from 'ngx-pagination';
+import { ModalAdicionarServicoComponent } from './modules/admin/components/modal/modal-adicionar-servico/modal-adicionar-servico.component';
+import { ModalAdicionarUsuarioComponent } from './modules/admin/components/modal/modal-adicionar-usuario/modal-adicionar-usuario.component';
 
 
 
@@ -47,7 +50,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FormUsuarioComponent,
     PainelComponent,
     ContatosComponent,
-    MenuAdminComponent
+    MenuAdminComponent,
+    ModalAdicionarServicoComponent,
+    ModalAdicionarUsuarioComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +62,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
     NgxPaginationModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule
   ],
   exports:[],
   providers: [],
