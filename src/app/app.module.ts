@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 import { InicialComponent } from './modules/site/inicial/inicial.component';
@@ -63,7 +64,8 @@ import { ModalAdicionarUsuarioComponent } from './modules/admin/components/modal
     BrowserAnimationsModule,
     NgxPaginationModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule
   ],
   exports:[],
   providers: [],
