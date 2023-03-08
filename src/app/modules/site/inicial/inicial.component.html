@@ -1,35 +1,35 @@
 
   <app-menu></app-menu>
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <div id="carouselExampleIndicators" style="background-color: #CCCCCC;" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="d-block w-100" src="../assets/imagens/imagem_salao_1.jpg" alt="Imagem salão" height="600px">
+        <img class="d-block w-100" [src]="'../assets'+galeriaFoto1?.valor" alt="Imagem salão" height="600px">
         
         <div class="carousel-caption d-none d-md-block">
           <h4>Faça seu agendamento</h4>
-          <p>Realize uma agendamento de horário de atendimento / Solicite orçamento</p>
+          <p>{{ galeriaFoto1?.descricao }}</p>
           <a [routerLink]="['/agendamento']">
-             <button type="button" class="btn btn-primary btn-lg">Agendar</button>
+             <button type="button"  [style]="'background-color: '+ corSite!.valor" class="btn btn-lg text-white">Horário de Funcionamento</button>
           </a>
         </div>
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="../assets/imagens/imagem_salao_2.jpg" alt="Imagem salão" height="600px">
+      <img class="d-block w-100" [src]="'../assets'+galeriaFoto2?.valor" alt="Imagem salão" height="600px">
       <div class="carousel-caption d-none d-md-block">
         <h4>Faça seu agendamento</h4>
-        <p>Realize uma agendamento de horário de atendimento / Solicite orçamento</p>
+        <p>{{ galeriaFoto2?.descricao }}</p>
         <a [routerLink]="['/agendamento']">
-          <button type="button" class="btn btn-primary btn-lg">Agendar</button>
+          <button type="button"  [style]="'background-color: '+ corSite!.valor +';'" class="btn btn-lg text-white">Horário de Funcionamento</button>
        </a>
       </div>
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="../assets/imagens/imagem_salao_3.jpg" alt="Imagem salão" height="600px">
+      <img class="d-block w-100" [src]="'../assets'+galeriaFoto3?.valor" alt="Imagem salão" height="600px">
       <div class="carousel-caption d-none d-md-block">
         <h4>Faça seu agendamento</h4>
-        <p>Realize uma agendamento de horário de atendimento / Solicite orçamento</p>
+        <p>{{ galeriaFoto3?.descricao }}</p>
         <a [routerLink]="['/agendamento']">
-          <button type="button" class="btn btn-primary btn-lg">Agendar</button>
+          <button type="button"  [style]="'background-color: '+ corSite!.valor +';'" class="btn btn-lg text-white">Horário de Funcionamento</button>
        </a>
       </div>
     </div>
@@ -49,14 +49,11 @@
         <h2 class="col-12 text-center mt-5 mb-5">SOBRE NÓS</h2>
         <div class="col-7">
             <p class="text-justify mt-4">
-                Lorem ipsum dolor sit amet consectetur, adipiscing elit risus pulvinar vehicula in, 
-                ad nam imperdiet viverra. Auctor porta nibh ac nec sed himenaeos eros, ipsum nisl vulputate praesent 
-                dapibus ultricies vel adipiscing, suspendisse felis curae lobortis ante at. Purus nec integer rhoncus 
-                tempor justo fames, parturient quisque quis rutrum nunc platea, maximus neque in dis senectus.
+                {{ sobre?.descricao }}
             </p>
         </div>
         <div class="col-5">
-            <img class="d-block w-100" src="../assets/imagens/imagem_salao_1.jpg" alt="Imagem salão">
+            <img class="d-block w-100" [src]="'../assets'+sobre?.valor" alt="Imagem salão">
         </div>
     </div>
 </div>

@@ -13,10 +13,10 @@ const routes: Routes = [
   { path: 'home', component: InicialComponent },
   { path: 'login', component: LoginComponent },
   { path: 'admin/agendamento', component: AgendamentoComponent },
-  { path: 'admin', component:  PainelComponent},
   { path: 'admin/agenda', component: AgendaComponent },
   { path: 'admin/contatos', component: ContatosComponent },
-  { path: 'admin/configuracao', component: ConfiguracoesComponent },
+  { path: 'admin/configuracao', component: ConfiguracoesComponent},
+  { path: 'admin', redirectTo: 'admin/agenda'},
   { path: 'admin/usuarios', component: UsuarioComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];

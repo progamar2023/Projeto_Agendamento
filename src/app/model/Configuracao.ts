@@ -3,5 +3,6 @@ export class Configuracao {
     local?: string;
     tipo?: string;
     descricao?: string;
-    valor?: string;
+    valor: string = '';
+    posicao?: number;
 }
