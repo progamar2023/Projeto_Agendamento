@@ -1,3 +1,5 @@
+import { Time } from "@angular/common";
+
 export class Configuracao {
     id?: number;
     local?: string;
@@ -5,4 +7,6 @@ export class Configuracao {
     descricao?: string;
     valor: string = '';
     posicao?: number;
+    dataInicial?: Time;
+    dataFinal?: Time;
 }

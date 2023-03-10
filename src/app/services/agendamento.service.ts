@@ -37,6 +37,23 @@ export class AgendamentoService {
       )
   }
 
+  putAgendamento(Agendamento: Agendamento): Observable<Agendamento> {
+    return this.httpClient.put<Agendamento>(`${this.url}/${Agendamento.id}`, JSON.stringify(Agendamento), this.httpOptions)
+      .pipe(
+        retry(1),
+        catchError(this.handleError)
+      )
+  }
+
+  delAgendamento(id: number) {
+    return this.httpClient.delete<Agendamento>(`${this.url}/${id}`, this.httpOptions)
+      .pipe(
+        retry(1),
+        catchError(this.handleError)
+      )
+  }
+
+
 
   handleError(error: HttpErrorResponse) {
     let errorMessage = '';

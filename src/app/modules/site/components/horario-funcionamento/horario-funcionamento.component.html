@@ -1,0 +1,13 @@
+<div class="container p-3">
+    <h2 class="text-center">Horários de Funcionamento</h2>
+    <div class="p-2">
+        <p class="border-bottom" *ngFor="let horario of horarios"> 
+            <span class="mt-1 mb-1 texto-bold">{{horario?.descricao}}:</span> 
+            {{ formataTime(horario!.dataInicial) | date: 'HH:mm'}} até {{ formataTime(horario?.dataFinal) | date: 'HH:mm' }}
+        </p>
+    </div>
+    <div align="end">
+        <button class="btn btn-secondary mr-2" (click)="close()">Fechar</button>
+    </div>
+   
+</div>

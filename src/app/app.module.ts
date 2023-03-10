@@ -30,6 +30,8 @@ import { PainelComponent } from './modules/admin/inicial/inicial.component';
 import { MenuAdminComponent } from './modules/admin/components/menu/menu.component';
 import { ModalAdicionarServicoComponent } from './modules/admin/components/modal/modal-adicionar-servico/modal-adicionar-servico.component';
 import { ModalAdicionarUsuarioComponent } from './modules/admin/components/modal/modal-adicionar-usuario/modal-adicionar-usuario.component';
+import { HorarioFuncionamentoComponent } from './modules/site/components/horario-funcionamento/horario-funcionamento.component';
+import { ModalEditaAgendamentoComponent } from './modules/admin/components/modal-edita-agendamento/modal-edita-agendamento.component';
 
 
 
@@ -53,7 +55,9 @@ import { ModalAdicionarUsuarioComponent } from './modules/admin/components/modal
     ContatosComponent,
     MenuAdminComponent,
     ModalAdicionarServicoComponent,
-    ModalAdicionarUsuarioComponent
+    ModalAdicionarUsuarioComponent,
+    HorarioFuncionamentoComponent,
+    ModalEditaAgendamentoComponent
   ],
   imports: [
     BrowserModule,

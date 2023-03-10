@@ -3,14 +3,26 @@
         <div class="row">
             <h2 class="col-12 text-center mt-5 mb-5">SERVIÇOS</h2>
     
-            <div class="col-5 mb-5">
+            <div class="col-5 mb-5" *ngFor="let servico of servicos">
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="../assets/imagens/imagem_salao_1.jpg" alt="Serviços">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">AGENDAR</a>
+                    <img *ngIf="servico.servico!.imagem != ''" class="card-img-top" src="../assets/imagens/imagem_salao_1.jpg" alt="Serviços">
+                    <div class="text-center" style="padding: 60px; color: rgb(0, 0, 0); background-color: rgb(229, 229, 229);" *ngIf="servico.servico?.imagem == ''">
+                        <span  class="material-symbols-outlined" style="font-size: 5em; color: rgb(0, 0, 0);">
+                            content_cut
+                        </span>
                     </div>
+                    
+                    <div class="card-body">
+                      <h4 class="card-title">{{ servico.servico?.nome}} - {{ servico.tipoServico?.nome}}</h4>
+                      <p class="card-text">{{ servico.servico?.descricao}}</p>
+                    </div>
+                   
+                         <button type="button"  [style]="'background-color: '+ corSite +';'" class="btn btn-md text-white text-center">
+                            <a href="home#Contato" class="link">
+                                Entrar em Contato
+                            </a>
+                         </button>
+                    
                   </div>
             </div>
         </div>

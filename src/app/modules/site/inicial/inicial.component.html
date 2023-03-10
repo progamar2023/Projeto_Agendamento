@@ -9,7 +9,7 @@
           <h4>Faça seu agendamento</h4>
           <p>{{ galeriaFoto1?.descricao }}</p>
           <a [routerLink]="['/agendamento']">
-             <button type="button"  [style]="'background-color: '+ corSite!.valor" class="btn btn-lg text-white">Horário de Funcionamento</button>
+             <button type="button" (click)="abreModalAddServico()"  [style]="'background-color: '+ corSite!.valor" class="btn btn-lg text-white">Horário de Funcionamento</button>
           </a>
         </div>
     </div>
@@ -19,7 +19,7 @@
         <h4>Faça seu agendamento</h4>
         <p>{{ galeriaFoto2?.descricao }}</p>
         <a [routerLink]="['/agendamento']">
-          <button type="button"  [style]="'background-color: '+ corSite!.valor +';'" class="btn btn-lg text-white">Horário de Funcionamento</button>
+          <button (click)="abreModalAddServico()" type="button"  [style]="'background-color: '+ corSite!.valor +';'" class="btn btn-lg text-white">Horário de Funcionamento</button>
        </a>
       </div>
     </div>
@@ -29,7 +29,7 @@
         <h4>Faça seu agendamento</h4>
         <p>{{ galeriaFoto3?.descricao }}</p>
         <a [routerLink]="['/agendamento']">
-          <button type="button"  [style]="'background-color: '+ corSite!.valor +';'" class="btn btn-lg text-white">Horário de Funcionamento</button>
+          <button type="button" (click)="abreModalAddServico()"  [style]="'background-color: '+ corSite!.valor +';'" class="btn btn-lg text-white">Horário de Funcionamento</button>
        </a>
       </div>
     </div>
@@ -48,17 +48,17 @@
     <div class="row">
         <h2 class="col-12 text-center mt-5 mb-5">SOBRE NÓS</h2>
         <div class="col-7">
-            <p class="text-justify mt-4">
+            <p class="text-justify mt-5 texto-sobre">
                 {{ sobre?.descricao }}
             </p>
         </div>
         <div class="col-5">
-            <img class="d-block w-100" [src]="'../assets'+sobre?.valor" alt="Imagem salão">
+            <img class="d-block w-100 borda-imagem" [src]="'../assets'+sobre?.valor" alt="Imagem salão">
         </div>
     </div>
 </div>
 
 
-<app-servico></app-servico>
+<app-servico [corSite]="corSite!.valor"></app-servico>
 
 <app-contato></app-contato>

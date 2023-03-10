@@ -20,22 +20,22 @@
         </div>
         <div class="card-body">
           <div class="row ">
-            <div class="col-2 text-center">
-                <p class="h5">{{ agendamento.dataAgendamento | date: 'dd/MM/YYYY'}}</p>
+            <div class="col-2 text-center mt-4">
+                <p class="h6">{{ agendamento.dataAgendamento | date: 'dd/MM/YYYY'}}</p>
                 <p>{{ agendamento.dataAgendamento | date: 'hh:mm'}}</p>
             </div>
-            <div class="col-2">
-                <h2>{{ agendamento.nome}}</h2>
+            <div class="col-3">
+                <p class="h6">{{ agendamento.nome}}</p>
                 <p>{{ agendamento.email}}</p>
                 <p>{{ agendamento.telefone}}</p>
             </div>
-            <div class="col-2">
-                <h2>Serviço</h2>
-                <p>{{ agendamento.servicoId}}</p>
-                <p>{{ agendamento.descricao}}</p>
+            <div class="col-3">
+                <p class="h6">Serviço</p>
+                <p><span class="h6">Serviço:</span> {{ getServicoId(agendamento.servicoId)}}</p>
+                <p><span class="h6">Obs.:</span> {{ agendamento.descricao}}</p>
             </div>
-            <div class="col-6 text-center">
-                <h2>Status</h2>
+            <div class="col-4 text-center" (click)="editeAgendamento(agendamento)">
+                <p class="h6">Status</p>
                 
                 <button *ngIf="agendamento.status == 0" type="button" class="btn btn-warning text-white">Agendado</button>
                 <button *ngIf="agendamento.status == 1" type="button" class="btn btn-primary text-white">Agendamento Confirmado</button>

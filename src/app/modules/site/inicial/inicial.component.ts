@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Configuracao } from 'src/app/model/Configuracao';
 import { ConfiguracoesService } from 'src/app/services/configuracoes.service';
+import { HorarioFuncionamentoComponent } from '../components/horario-funcionamento/horario-funcionamento.component';
 
 @Component({
   selector: 'app-inicial',
@@ -10,8 +12,8 @@ import { ConfiguracoesService } from 'src/app/services/configuracoes.service';
 export class InicialComponent implements OnInit {
 
   configuracaoSistema: Configuracao[] = [];
-
-  constructor(private configuracaoService: ConfiguracoesService) {
+  
+  constructor(private configuracaoService: ConfiguracoesService, private dialog: MatDialog) {
 
   }
 
@@ -53,5 +55,15 @@ export class InicialComponent implements OnInit {
         this.domingo = this.configuracaoSistema.find(x => x.descricao == "Domingo")?.valor == "true";
       }
     })
+  }
+
+  abreModalAddServico() {
+    const dialogRef = this.dialog.open(HorarioFuncionamentoComponent,  {
+      data: {
+        configuracoes: this.configuracaoSistema
+      },
+      height: '400px',
+      width: '360px'
+    });
   }
 }
