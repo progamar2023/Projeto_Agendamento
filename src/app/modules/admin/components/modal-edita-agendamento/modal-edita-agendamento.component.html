@@ -1,10 +1,19 @@
-<form [formGroup]= "form" (ngSubmit)= "onSubmit(form.value)" class="container p-5 col-8" id="Agendamento">
+<form [formGroup]= "form" class="container p-3" id="Agendamento">
     <div class="form-row">
-        <h2 class="col-12 text-center">Edita Agendamento: {{agendamento.id}}</h2>
-        <div align="end">
-            <button> Status</button>
-             <button>Cancelar</button>
+        <div class="col-12" align="end">
+            <button [matMenuTriggerFor]="menu" *ngIf="agendamento.status == 0" type="button" class="btn btn-warning text-white">Agendado</button>
+            <button [matMenuTriggerFor]="menu" *ngIf="agendamento.status == 1"  type="button" class="btn btn-primary text-white">Agendamento Confirmado</button>
+            <button [matMenuTriggerFor]="menu" *ngIf="agendamento.status == 2"  type="button" class="btn btn-success text-white">Finalizado</button>
+            <button [matMenuTriggerFor]="menu" *ngIf="agendamento.status == 3"  type="button" class="btn btn-darger text-white">Cancelado</button>
+        
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="alteraStatus(0)" >Agendado</button>
+              <button mat-menu-item (click)="alteraStatus(1)" >Agendamento Confirmado</button>
+              <button mat-menu-item (click)="alteraStatus(2)" >Finalizado</button>
+              <button mat-menu-item (click)="alteraStatus(3)">Cancelado</button>
+            </mat-menu>
         </div>
+        <h2 class="col-12">Edita Agendamento: {{agendamento.id}}</h2>
         
     </div>
     <div class="form-group">
@@ -30,7 +39,7 @@
         <div class="row">
             <div class="col">
                 <label for="dataAgendamento">Data de Agendamento</label>
-                <input type="date" [min]="dataAtual" formControlName="DataAgendamento"  class="form-control" id="dataAgendamento">
+                <input type="date" formControlName="DataAgendada"  class="form-control" id="dataAgendamento">
             </div>
             <div class="col">
                 <label for="horarioAgendamento">Horário Agendamento</label>
@@ -43,6 +52,6 @@
         <label for="mensagem">Descrição</label>
         <textarea class="form-control" formControlName="Descricao" id="mensagem" rows="3"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary btn-block">AGENDAR</button>
+    <button type="submit" (click)= "onSubmit(form.value)" class="btn btn-primary btn-block">Salvar</button>
 </form>
 

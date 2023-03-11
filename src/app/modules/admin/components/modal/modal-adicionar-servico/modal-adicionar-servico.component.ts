@@ -44,14 +44,16 @@ export class ModalAdicionarServicoComponent implements OnInit {
 
   createForm() {
     return this.form = new FormGroup({
+      id: new FormControl(this.servico?.id),
       nome: new FormControl(this.servico?.nome, [Validators.required]),
       descricao: new FormControl(this.servico?.descricao, Validators.required),
-      imagem: new FormControl(this.servico?.imagem),
+      imagem: new FormControl(this.editar ? this.servico?.imagem : ''),
       tipoServicoId: new FormControl(this.servico?.tipoServicoId, Validators.required)
     });
   }
 
   onSubmit(servico: Servico) {
+    delete(servico.id)
     this.servicoServico.postServico(servico).subscribe( x => {
       if(x) {
         this.notificacao.showSuccess('Serviço cadastrado com sucesso!', 'Cadastrado');
@@ -61,7 +63,7 @@ export class ModalAdicionarServicoComponent implements OnInit {
   }
 
   editarServico(servico: Servico) {
-    this.servicoServico.postServico(servico).subscribe( x => {
+    this.servicoServico.putServico(servico).subscribe( x => {
       if(x) {
         this.notificacao.showSuccess('Serviço cadastrado com sucesso!', 'Cadastrado');
         this.close();

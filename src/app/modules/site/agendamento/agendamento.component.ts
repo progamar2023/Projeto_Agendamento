@@ -33,7 +33,9 @@ export class AgendamentoComponent implements OnInit {
       Telefone: new FormControl(this.agendamento.telefone, Validators.required),
       Descricao: new FormControl(this.agendamento.descricao, Validators.required),
       ServicoId: new FormControl(this.agendamento.servicoId, Validators.required),
-      DataAgendamento: new FormControl(this.agendamento, Validators.required),
+      HorarioAgendamento: new FormControl(this.agendamento.dataAgendamento, Validators.required),
+      DataAgendada: new FormControl(this.agendamento.dataAgendamento, Validators.required),
+      DataAgendamento: new FormControl(this.agendamento.dataAgendamento, Validators.required),
       UsuarioId: new FormControl(this.agendamento.usuarioId, Validators.required)
     });
   }
@@ -47,6 +49,8 @@ export class AgendamentoComponent implements OnInit {
   }
 
   onSubmit(agendamento: Agendamento) {
+    let dataAgendamento = (this.form.controls['DataAgendada'].value +"T" + this.form.controls['HorarioAgendamento'].value + ":00Z").toString()
+    agendamento.dataAgendamento = new Date(dataAgendamento);
     this.agendamentoService.postAgendamento(agendamento).subscribe(x => {
       if(x !== undefined) {
         this.notificacao.showSuccess('Agendado com sucesso!', 'Agendamento Realizado');

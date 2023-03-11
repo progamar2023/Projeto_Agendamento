@@ -47,8 +47,8 @@ export class AgendaComponent implements OnInit{
       data: {
         agendamento: agendamento
       },
-      height: '600px',
-      width: '800px'
+      height: '700px',
+      width: '650px'
     });
   
       dialogRef.afterClosed().subscribe(resposta => {

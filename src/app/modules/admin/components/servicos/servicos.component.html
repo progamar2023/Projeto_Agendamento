@@ -5,7 +5,7 @@
                 <h3 class="mt-2">Serviços</h3>
             </div>
             <div class="col text-right mt-2">
-                <button class="btn btn-primary" (click)="abreModalAddServico()">Adicionar</button>
+                <button class="btn btn-primary" (click)="abreModalAddServico()">+ Adicionar Serviço</button>
             </div>
         </div>
        
@@ -17,6 +17,7 @@
                 <tr class="text-center">
                     <th>Id</th>
                     <th>Imagem</th>
+                    <th>Nome</th>
                     <th>Tipo</th>
                     <th>Serviço</th>
                     <th>Data de Cadastro</th>
@@ -28,12 +29,16 @@
                 <tr *ngFor="let servico of servicos | paginate: { itemsPerPage: 5, currentPage: paginaAtual }; let i = index">
                     <td>{{servico.servico?.id}}</td>
                     <td>{{servico.servico?.imagem}}</td>
+                    <td>{{servico.servico?.nome}}</td>
                     <td>{{servico.tipoServico?.nome}}</td>
                     <td>{{servico.servico?.descricao}}</td>
                     <td>{{servico.servico?.dataCriacao | date: 'dd/MM/yyyy'}}</td>
                     <td>
                         <span class="material-icons mouse" (click)="editeServico(servico.servico)">
                             edit
+                        </span>
+                        <span class="material-icons mouse" (click)="deletaServico(servico.servico)">
+                            delete
                         </span>
                     </td>
                 </tr>

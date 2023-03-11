@@ -42,4 +42,10 @@ export class ConfiguracaoHorarioComponent implements OnInit {
   }
   
 
+  editaConfiguracao(conf: any) {
+    this.configuracaoService.putConfiguracao(conf).subscribe(x => {
+
+    });
+  }
+
 }

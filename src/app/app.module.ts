@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import {MatMenuModule} from '@angular/material/menu';
 
 import { InicialComponent } from './modules/site/inicial/inicial.component';
 import { ServicoComponent } from './modules/site/components/servico/servico.component';
@@ -32,6 +33,7 @@ import { ModalAdicionarServicoComponent } from './modules/admin/components/modal
 import { ModalAdicionarUsuarioComponent } from './modules/admin/components/modal/modal-adicionar-usuario/modal-adicionar-usuario.component';
 import { HorarioFuncionamentoComponent } from './modules/site/components/horario-funcionamento/horario-funcionamento.component';
 import { ModalEditaAgendamentoComponent } from './modules/admin/components/modal-edita-agendamento/modal-edita-agendamento.component';
+import { ParametrosSistemaComponent } from './modules/admin/components/parametros-sistema/parametros-sistema.component';
 
 
 
@@ -57,7 +59,8 @@ import { ModalEditaAgendamentoComponent } from './modules/admin/components/modal
     ModalAdicionarServicoComponent,
     ModalAdicionarUsuarioComponent,
     HorarioFuncionamentoComponent,
-    ModalEditaAgendamentoComponent
+    ModalEditaAgendamentoComponent,
+    ParametrosSistemaComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +72,8 @@ import { ModalEditaAgendamentoComponent } from './modules/admin/components/modal
     NgxPaginationModule,
     MatIconModule,
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    MatMenuModule
   ],
   exports:[],
   providers: [],

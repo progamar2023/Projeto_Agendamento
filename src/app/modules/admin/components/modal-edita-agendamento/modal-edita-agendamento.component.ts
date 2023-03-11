@@ -39,8 +39,11 @@ export class ModalEditaAgendamentoComponent implements OnInit {
       Telefone: new FormControl(this.agendamento.telefone, Validators.required),
       Descricao: new FormControl(this.agendamento.descricao, Validators.required),
       ServicoId: new FormControl(this.agendamento.servicoId, Validators.required),
-      DataAgendamento: new FormControl(this.agendamento, Validators.required),
-      UsuarioId: new FormControl(this.agendamento.usuarioId, Validators.required)
+      HorarioAgendamento: new FormControl(this.agendamento.dataAgendamento, Validators.required),
+      Status: new FormControl(this.agendamento.status, Validators.required),
+      DataAgendada: new FormControl(this.agendamento.dataAgendamento, Validators.required),
+      UsuarioId: new FormControl(this.agendamento.usuarioId, Validators.required),
+      DataAgendamento:  new FormControl(this.agendamento.dataAgendamento, Validators.required)
     });
   }
 
@@ -53,11 +56,19 @@ export class ModalEditaAgendamentoComponent implements OnInit {
   }
 
   onSubmit(agendamento: Agendamento) {
+    let dataAgendamento = (this.form.controls['DataAgendada'].value +"T" + this.form.controls['HorarioAgendamento'].value + ":00.000Z").toString()
+    agendamento.dataAgendamento = new Date(dataAgendamento);
+    agendamento.id = this.agendamento.id;
     this.agendamentoService.putAgendamento(agendamento).subscribe(x => {
       if(x !== undefined) {
         this.notificacao.showSuccess('Alterado com sucesso!', 'Editado');
         this.dialogRef.close();
       }
     })
+  }
+
+  alteraStatus(status: any) {
+    this.agendamento.status = status;
+    this.form.controls['Status'].setValue(status);
   }
 }

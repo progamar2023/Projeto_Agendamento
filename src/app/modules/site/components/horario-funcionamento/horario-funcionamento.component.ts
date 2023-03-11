@@ -20,7 +20,7 @@ constructor(public dialogRef: MatDialogRef<HorarioFuncionamentoComponent>,
     }
 }
   ngOnInit(): void {
-    this.horarios = this.configuracoes.filter(x => x.tipo == "Configuracao-horario").sort();
+    this.horarios = this.configuracoes.filter(x => x.tipo == "Configuracao-horario" && x.valor == "true").sort();
   }
 
   formataTime(time: any) {
