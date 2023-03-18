@@ -72,6 +72,9 @@ export class ParametrosSistemaComponent implements OnInit {
     this.editaConfiguracao(this.infoSalao);
     this.editaConfiguracao(this.infoSalao);
     this.editaConfiguracao(this.corSite);
+    this.editaConfiguracao(this.galeriaFoto1);
+    this.editaConfiguracao(this.galeriaFoto2);
+    this.editaConfiguracao(this.galeriaFoto3);
     setTimeout(function(){
     }, 2000);
     this.reload();

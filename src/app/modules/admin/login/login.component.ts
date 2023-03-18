@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Login } from 'src/app/model/Usuario';
 import { LoginService } from 'src/app/services/login.service';
+import { NotificacaoService } from 'src/app/services/shared/notificacao.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   login: Login = new Login();
 
-  constructor(private loginService: LoginService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private loginService: LoginService, private route: ActivatedRoute, private router: Router,  private notificacao: NotificacaoService) { }
 
   ngOnInit() {
     this.createForm();
@@ -31,8 +32,11 @@ export class LoginComponent implements OnInit {
   onSubmit(login: Login) {
     this.loginService.login(login).subscribe(x => {
       if(x !== undefined) {
+        localStorage.setItem('usuario', JSON.stringify(x));
         this.router.navigateByUrl('/admin');
       }
+    }, (erro) => {
+        this.notificacao.showError("Usuário/ Senha incorretos", "Falha no Login");
     })
   }
 }

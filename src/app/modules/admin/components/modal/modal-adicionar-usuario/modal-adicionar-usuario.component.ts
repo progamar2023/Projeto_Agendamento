@@ -15,6 +15,7 @@ export class ModalAdicionarUsuarioComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   usuario: Usuario = new Usuario();
   editar: boolean = false;
+  perfil: boolean = false;
    
 
   constructor(public dialogRef: MatDialogRef<ModalAdicionarUsuarioComponent>,
@@ -27,6 +28,9 @@ export class ModalAdicionarUsuarioComponent implements OnInit {
       if(data && data.usuario) {
         this.editar = true;
         this.usuario = data.usuario;
+      }
+      if(data && data.perfil == true) {
+          this.perfil = true
       }
 
 
