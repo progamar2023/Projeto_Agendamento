@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, EventEmitter, OnInit, Output } from '@ang
 import { Router } from '@angular/router';
 import { Configuracao } from 'src/app/model/Configuracao';
 import { ConfiguracoesService } from 'src/app/services/configuracoes.service';
+import { NotificacaoService } from 'src/app/services/shared/notificacao.service';
 
 @Component({
   selector: 'app-parametros-sistema',
@@ -12,7 +13,7 @@ export class ParametrosSistemaComponent implements OnInit {
   configuracaoSistema: Configuracao[] = [];
   @Output() atualizou = new EventEmitter<boolean>();
   
-  constructor(private configuracaoService: ConfiguracoesService, private changeDetector:ChangeDetectorRef, private router: Router) {
+  constructor(private configuracaoService: ConfiguracoesService, private changeDetector:ChangeDetectorRef, private router: Router,  private notificacao: NotificacaoService) {
 
   }
 
@@ -78,6 +79,7 @@ export class ParametrosSistemaComponent implements OnInit {
     setTimeout(function(){
     }, 2000);
     this.reload();
+    this.notificacao.showSuccess("Sistema Atualizado com Sucesso", "Atualizado")
   }
 
   imageUpload(event:any, local: string)
