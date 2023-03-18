@@ -2,11 +2,11 @@
     <div class="container mb-5 mt-5">
         <div class="row">
             <h2 class="col-12 text-center mt-5 mb-5">SERVIÇOS</h2>
-    
-            <div class="col-5 mb-5" *ngFor="let servico of servicos">
-                <div class="card" style="width: 18rem;">
-                    <img *ngIf="servico.servico!.imagem != ''" class="card-img-top" src="../assets/imagens/imagem_salao_1.jpg" alt="Serviços">
-                    <div class="text-center" style="padding: 60px; color: rgb(0, 0, 0); background-color: rgb(229, 229, 229);" *ngIf="servico.servico?.imagem == ''">
+            
+            <div class="col-4 mb-5" *ngFor="let servico of servicos">
+                <div class="card" style="width: 17rem;">
+                    <img *ngIf="servico!.imagemBase64 != ''" class="card-img-top"  [src]="'data:image/png;base64,' + servico?.imagemBase64" alt="Serviços">
+                    <div class="text-center" style="padding: 60px; color: rgb(0, 0, 0); background-color: rgb(229, 229, 229);" *ngIf="servico?.imagemBase64 == ''">
                         <span  class="material-symbols-outlined" style="font-size: 5em; color: rgb(0, 0, 0);">
                             content_cut
                         </span>

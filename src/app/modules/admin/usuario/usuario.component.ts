@@ -65,4 +65,11 @@ export class UsuarioComponent {
           this.getUsuarios();
         });
     }
+
+    deletaUsuario(usuario: any) {
+      this.usuarioService.delUsuario(usuario.id).subscribe( x => {
+          this.getUsuarios();
+          this.notificacao.showSuccess('Excluido com sucesso!', 'Deletado');
+      })
+    }
 }

@@ -3,7 +3,41 @@
          Configurações Sistema  
     </h3>
     <div class="card-body">
-        
+          <div class="row">
+               <div class="col">
+                    <h4>Cor do Site</h4>
+                    <input type="color" [value]="corSite!.valor" [ngModel]="corSite!.valor" (ngModelChange)="corSite!.valor = $event ">                   
+               </div>
+               <div class="col">
+                    <h4>Nome do Salão</h4>
+                    <input type="text" [value]="infoSalao!.descricao" [ngModel]="infoSalao!.descricao" (ngModelChange)="infoSalao!.descricao = $event">
+               </div>
+               <div class="col">
+                    <h4>Logo do Site</h4>
+                    <input type="file" (change)="imageUpload($event, 'logo')">
+               </div>
+          </div>
+          <div class="row mt-4">
+               <div class="col">
+                    <h4>Imagem Sobre Site</h4>
+                    <input type="file" (change)="imageUpload($event, 'sobre')">
+               </div>
+               <div class="col">
+                    <h4>Texto Sobre do Site</h4>
+                 
+                    <textarea [value]="sobre!.descricao" [ngModel]="sobre!.descricao" (ngModelChange)="sobre!.descricao = $event" cols="80" rows="5"></textarea>
+               </div>
+          </div>
+          <div class="row mt-4">
+               <div class="col">
+                    <h4>Alterar Fotos Site (Carrossel)</h4>
+                    Foto 1: <input type="file" (change)="imageUpload($event, 'foto1')"><br>
+                    Foto 2: <input type="file" (change)="imageUpload($event, 'foto2')"><br>
+                    Foto 3: <input type="file" (change)="imageUpload($event, 'foto3')"><br>
+               </div>
+          </div>
+
+          <button class="btn btn-primary mt-4"(click)="atualizarParametros()">Atualizar Sistema</button>
 
     </div>
   </div>

@@ -34,6 +34,8 @@ import { ModalAdicionarUsuarioComponent } from './modules/admin/components/modal
 import { HorarioFuncionamentoComponent } from './modules/site/components/horario-funcionamento/horario-funcionamento.component';
 import { ModalEditaAgendamentoComponent } from './modules/admin/components/modal-edita-agendamento/modal-edita-agendamento.component';
 import { ParametrosSistemaComponent } from './modules/admin/components/parametros-sistema/parametros-sistema.component';
+import { TipoServicoComponent } from './modules/admin/components/tipo-servico/tipo-servico.component';
+import { AdicionarTipoServicoComponent } from './modules/admin/components/modal/adicionar-tipo-servico/adicionar-tipo-servico.component';
 
 
 
@@ -60,7 +62,9 @@ import { ParametrosSistemaComponent } from './modules/admin/components/parametro
     ModalAdicionarUsuarioComponent,
     HorarioFuncionamentoComponent,
     ModalEditaAgendamentoComponent,
-    ParametrosSistemaComponent
+    ParametrosSistemaComponent,
+    TipoServicoComponent,
+    AdicionarTipoServicoComponent
   ],
   imports: [
     BrowserModule,

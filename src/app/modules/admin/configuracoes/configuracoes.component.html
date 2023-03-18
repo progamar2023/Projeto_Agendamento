@@ -3,8 +3,9 @@
 <div class="container pt-5">
     <h1 class="col-12 text-center mb-5 font-bold">CONFIGURAÇÕES</h1>
 
-    <app-parametros-sistema></app-parametros-sistema>
+    <app-parametros-sistema (atualizou)="atualizaPagina($event)"></app-parametros-sistema>
     <app-configuracao-horario></app-configuracao-horario>
     <app-servicos></app-servicos>
+    <app-tipo-servico></app-tipo-servico>
     <app-usuario></app-usuario>
 </div>

@@ -41,7 +41,7 @@ export class ModalEditaAgendamentoComponent implements OnInit {
       ServicoId: new FormControl(this.agendamento.servicoId, Validators.required),
       HorarioAgendamento: new FormControl(this.agendamento.dataAgendamento, Validators.required),
       Status: new FormControl(this.agendamento.status, Validators.required),
-      DataAgendada: new FormControl(this.agendamento.dataAgendamento, Validators.required),
+      DataAgendada: new FormControl(new Date(this.agendamento.dataAgendamento!.toString()).toLocaleDateString(), Validators.required),
       UsuarioId: new FormControl(this.agendamento.usuarioId, Validators.required),
       DataAgendamento:  new FormControl(this.agendamento.dataAgendamento, Validators.required)
     });

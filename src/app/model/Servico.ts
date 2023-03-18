@@ -1,6 +1,7 @@
 export class ServicoRequest {
     servico?: Servico;
     tipoServico?: TipoServico;
+    imagemBase64?: string;
 }
 
 export class Servico {
@@ -11,6 +12,7 @@ export class Servico {
     tipoServicoId?: number;
     dataCriacao?: Date;
     habilitado?: boolean;
+    imagemBase64?: string;
 
 }
 

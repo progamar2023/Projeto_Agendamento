@@ -56,7 +56,6 @@ export class ServicosComponent implements OnInit {
     
         dialogRef.afterClosed().subscribe(resposta => {
           this.getServicos();
-          this.notificacao.showSuccess('Alterado com sucesso!', 'Editado');
         });
     }
 

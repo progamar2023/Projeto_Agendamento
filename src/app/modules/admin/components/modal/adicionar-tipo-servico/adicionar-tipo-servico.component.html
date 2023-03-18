@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>{{ titulo }}</h2>
+
+<form [formGroup]= "form" class="p-4 col-12" id="tipoServico">
+
+    <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" formControlName="nome" class="form-control" id="nome" placeholder="Digite o nome do tipo de serviço">
+    </div>
+   
+</form>
+
+<mat-dialog-actions align="end">
+<button class="btn btn-secondary mr-2" (click)="close()">Fechar</button>
+<button *ngIf="editar == false" class="btn btn-primary" (click)="onSubmit(form.value)">Salvar</button>
+<button *ngIf="editar == true" class="btn btn-primary" (click)="editarTipoServico(form.value)">Editar</button>
+</mat-dialog-actions>

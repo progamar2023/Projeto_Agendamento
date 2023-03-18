@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark text-white" [style]="'background-color: '+ corSite!.valor">
     <a class="navbar-brand" href="#">
-        <img [src]="'../assets'+infoSalao?.valor" width="30" height="30" alt="">
+        <img *ngIf="infoSalao!.imagemBase64 == ''" [src]="'../assets'+infoSalao?.valor" width="30" height="30" alt="">
+        <img *ngIf="infoSalao!.imagemBase64 != ''" [src]="'data:image/png;base64,' + infoSalao?.imagemBase64" width="30" height="30" alt="">
         {{ infoSalao?.descricao}}
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"

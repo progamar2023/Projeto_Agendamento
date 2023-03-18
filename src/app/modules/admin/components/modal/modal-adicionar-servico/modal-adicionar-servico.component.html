@@ -22,7 +22,7 @@
 
         <div class="form-group">
             <label for="imagem"></label>
-            <input type="file" formControlName="imagem" class="form-control" id="imagem" placeholder="Selecione uma Imagem">
+            <input type="file" class="form-control" id="imagem" (change)="imageUpload($event)" placeholder="Selecione uma Imagem">
         </div>
        
     </form>

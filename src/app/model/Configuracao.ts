@@ -9,4 +9,5 @@ export class Configuracao {
     posicao?: number;
     dataInicial?: Time;
     dataFinal?: Time;
+    imagemBase64?: string;
 }

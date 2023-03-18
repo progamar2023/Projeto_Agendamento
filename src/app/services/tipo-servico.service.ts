@@ -37,6 +37,23 @@ export class TipoServicoService {
       )
   }
 
+  delTipoServico(id: number) {
+    return this.httpClient.delete<TipoServico>(`${this.url}/${id}`, this.httpOptions)
+      .pipe(
+        retry(1),
+        catchError(this.handleError)
+      )
+  }
+
+
+  putTipoServico(TipoServico: TipoServico): Observable<TipoServico> {
+    return this.httpClient.put<TipoServico>(`${this.url}/${TipoServico.id}`, JSON.stringify(TipoServico), this.httpOptions)
+      .pipe(
+        retry(1),
+        catchError(this.handleError)
+      )
+  }
+
 
   handleError(error: HttpErrorResponse) {
     let errorMessage = '';

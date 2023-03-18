@@ -2,10 +2,10 @@
     <div class="card-header">
         <div class="row">
             <div class="col">
-                <h3 class="mt-2">Serviços</h3>
+                <h3 class="mt-2">Tipos de Serviços</h3>
             </div>
             <div class="col text-right mt-2">
-                <button class="btn btn-primary" (click)="abreModalAddServico()">+ Adicionar Serviço</button>
+                <button class="btn btn-primary" (click)="abreModalAddTipoServico()">+ Adicionar Tipo de Serviço</button>
             </div>
         </div>
        
@@ -16,30 +16,22 @@
             <thead>
                 <tr class="text-center">
                     <th>Id</th>
-                    <th>Imagem</th>
                     <th>Nome</th>
-                    <th>Tipo</th>
-                    <th>Serviço</th>
                     <th>Data de Cadastro</th>
                     <th>Ações</th>
                 </tr>
                 
             </thead>
             <tbody>
-                <tr *ngFor="let servico of servicos | paginate: { itemsPerPage: 5, currentPage: paginaAtual }; let i = index">
-                    <td>{{servico.servico?.id}}</td>
+                <tr *ngFor="let tipo of tipoServicos | paginate: { itemsPerPage: 5, currentPage: paginaAtual }; let i = index">
+                    <td>{{tipo?.id}}</td>
+                    <td>{{tipo?.nome}}</td>
+                    <td>{{tipo.dataCriacao | date: 'dd/MM/yyyy'}}</td>
                     <td>
-                        <img [src]="'data:image/png;base64,' + servico?.imagemBase64" width="100"> 
-                    </td>
-                    <td>{{servico.servico?.nome}}</td>
-                    <td>{{servico.tipoServico?.nome}}</td>
-                    <td>{{servico.servico?.descricao}}</td>
-                    <td>{{servico.servico?.dataCriacao | date: 'dd/MM/yyyy'}}</td>
-                    <td>
-                        <span class="material-icons mouse" (click)="editeServico(servico.servico)">
+                        <span class="material-icons mouse" (click)="editeTipoServico(tipo)">
                             edit
                         </span>
-                        <span class="material-icons mouse" (click)="deletaServico(servico.servico)">
+                        <span class="material-icons mouse" (click)="deletaTipoServico(tipo)">
                             delete
                         </span>
                     </td>
@@ -56,6 +48,4 @@
         </table>
 
     </div>
-</div>
-
-
+  </div>
