@@ -46,7 +46,7 @@ export class MenuAdminComponent implements OnInit {
         usuario: usuario,
         perfil: true
       },
-      height: '400px',
+      height: '500px',
       width: '800px'
     });
   
