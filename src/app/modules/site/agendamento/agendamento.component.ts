@@ -48,10 +48,11 @@ export class AgendamentoComponent implements OnInit {
     })
   }
 
-  onSubmit(agendamento: Agendamento) {
-    debugger
-    let dataAgendamento = (this.form.controls['DataAgendada'].value +"T" + this.form.controls['HorarioAgendamento'].value + ":00").toString()
-    this.form.controls['DataAgendamento'].setValue(dataAgendamento);
+  onSubmit(agendamento: any) {
+    let dataAgendamento = (this.form.controls['DataAgendada'].value +"T" + this.form.controls['HorarioAgendamento'].value + ":00").toString();
+
+    agendamento.DataAgendamento = dataAgendamento;
+
     this.agendamentoService.postAgendamento(agendamento).subscribe(x => {
       if(x !== undefined) {
         this.notificacao.showSuccess('Agendado com sucesso!', 'Agendamento Realizado');
